@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 # -*- coding:utf-8 -*-
 
+import mxnet
 from mxnet import image
 from mxnet import nd
 from mxnet.gluon.block import Block

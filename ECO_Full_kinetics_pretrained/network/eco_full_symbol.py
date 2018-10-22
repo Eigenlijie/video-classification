@@ -338,7 +338,7 @@ if __name__ == '__main__':
     internals = out.get_internals()
     print(internals.list_outputs())
 
-    x = mx.nd.random.normal(shape=(80, 3, 224, 224), ctx=mx.gpu())
+    x = mx.nd.random.normal(shape=(16, 3, 224, 224), ctx=mx.gpu())
     pred = eco_net(x)
     print("pred.shape : {0}, label : {1}".format(pred.shape, mx.nd.argmax(pred, axis=1).astype(np.int32)))
 

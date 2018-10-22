@@ -1,0 +1,4 @@
+*.log
+ECO_Full_kinetics_pretrained/__pycache__/
+.out
+.pyc

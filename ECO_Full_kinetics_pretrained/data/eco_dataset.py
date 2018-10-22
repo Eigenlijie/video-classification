@@ -94,19 +94,19 @@ class ImageNpyDataset(dataset.Dataset):
         video_imgs = nd.array(video_imgs)
         # 由于mxnet的ImageFoldDataset()方法中的__getitem__是针对单张图片的处理方法，此处不仅需要使image变成224x224x3，还需要做单张处理
         label = self.items[idx][1]
-        if self._transform is not None:
-            print('self._transform : {}'.format(self._transform))
-            trans_video_imgs = nd.zeros((224, 224, 3))
-            first_image = True
-            for i in range(video_imgs.shape[0]):
-                trans_video_img = self._transform(video_imgs[i], label)
-                trans_video_img = trans_video_img.reshape(-1, trans_video_img.shape[0], trans_video_img.shape[1], trans_video_img.shape[2])
-                if first_image:
-                    trans_video_imgs = trans_video_img
-                    first_image = False
-                else:
-                    trans_video_imgs = nd.concat(trans_video_imgs, trans_video_img)
-            return trans_video_imgs, label
+#        if self._transform is not None:
+#            print('self._transform : {}'.format(self._transform))
+#            trans_video_imgs = nd.zeros((224, 224, 3))
+#            first_image = True
+#            for i in range(video_imgs.shape[0]):
+#                trans_video_img = self._transform(video_imgs[i], label)
+#                trans_video_img = trans_video_img.reshape(-1, trans_video_img.shape[0], trans_video_img.shape[1], trans_video_img.shape[2])
+#                if first_image:
+#                    trans_video_imgs = trans_video_img
+#                    first_image = False
+#                else:
+#                    trans_video_imgs = nd.concat(trans_video_imgs, trans_video_img)
+#            return trans_video_imgs, label
         return video_imgs, label
 
     def __len__(self):
